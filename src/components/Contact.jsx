@@ -1,33 +1,42 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare, Navigation } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    const form = e.target;
+    const formData = new FormData(form);
 
-    setTimeout(() => {
+    try {
+      const response = await fetch("https://formspree.io/f/xbjnqvyy", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        form.reset();
+        setTimeout(() => setSubmitted(false), 6000);
+      } else {
+        alert("Thank you for your message! If Formspree requires initial activation, please check your inbox.");
+        setSubmitted(true);
+        form.reset();
+      }
+    } catch (error) {
+      // Fallback submit
+      form.submit();
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setSubmitted(false), 5000);
-    }, 800);
+    }
   };
 
   return (
@@ -97,24 +106,34 @@ export default function Contact() {
                   </div>
                 </a>
 
-                {/* Location Card */}
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200/60 dark:border-slate-700/60">
-                  <div className="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center shrink-0">
+                {/* Location Card with Google Maps link */}
+                <a
+                  href={personalInfo.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200/60 dark:border-slate-700/60 hover:border-sky-500/50 hover:bg-sky-50/50 dark:hover:bg-slate-800 transition-all group"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <MapPin className="w-6 h-6" />
                   </div>
-                  <div>
-                    <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                      Location
-                    </p>
-                    <p className="text-sm font-bold text-slate-900 dark:text-white">
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between">
+                      <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                        Location
+                      </p>
+                      <span className="text-xs font-bold text-sky-500 flex items-center gap-1">
+                        <Navigation className="w-3 h-3" /> Map ↗
+                      </span>
+                    </div>
+                    <p className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-sky-500 transition-colors">
                       {personalInfo.location}
                     </p>
                   </div>
-                </div>
+                </a>
 
               </div>
 
-              {/* Social Links: Exchanged places - LinkedIn first, then GitHub */}
+              {/* Social Links: LinkedIn first, then GitHub */}
               <div className="pt-6 border-t border-slate-100 dark:border-slate-700/60">
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
                   Connect On Social Media
@@ -145,7 +164,7 @@ export default function Contact() {
 
           </div>
 
-          {/* Right Column: Contact Form */}
+          {/* Right Column: Contact Form configured with Formspree */}
           <div className="lg:col-span-7">
             <div className="bg-white dark:bg-slate-800/90 p-8 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm relative">
               
@@ -153,17 +172,22 @@ export default function Contact() {
                 Send a Message
               </h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm mb-6">
-                Fill out the form below and I will get back to you promptly.
+                Fill out the form below and I will get back to you promptly at {personalInfo.email}.
               </p>
 
               {submitted && (
                 <div className="mb-6 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 flex items-center gap-3 animate-in fade-in duration-300">
                   <CheckCircle2 className="w-5 h-5 shrink-0" />
-                  <span className="text-sm font-medium">Thank you! Your message has been sent successfully. I will get back to you soon.</span>
+                  <span className="text-sm font-medium">Thank you! Your message has been sent successfully.</span>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form
+                action="https://formspree.io/f/xbjnqvyy"
+                method="POST"
+                onSubmit={handleSubmit}
+                className="space-y-5"
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
@@ -173,8 +197,6 @@ export default function Contact() {
                       type="text"
                       name="name"
                       required
-                      value={formData.name}
-                      onChange={handleChange}
                       placeholder="e.g. John Doe"
                       className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-sm"
                     />
@@ -186,9 +208,8 @@ export default function Contact() {
                     <input
                       type="email"
                       name="email"
+                      id="_replyto"
                       required
-                      value={formData.email}
-                      onChange={handleChange}
                       placeholder="e.g. john@example.com"
                       className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-sm"
                     />
@@ -203,8 +224,6 @@ export default function Contact() {
                     type="text"
                     name="subject"
                     required
-                    value={formData.subject}
-                    onChange={handleChange}
                     placeholder="e.g. Job Opportunity / Project Discussion"
                     className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-sm"
                   />
@@ -218,8 +237,6 @@ export default function Contact() {
                     name="message"
                     rows="5"
                     required
-                    value={formData.message}
-                    onChange={handleChange}
                     placeholder="Write your message here..."
                     className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-sm resize-none"
                   />

@@ -6,7 +6,8 @@ export const personalInfo = {
   email: "mattadinu9704637774@gmail.com",
   phone: "9704637774",
   location: "Medchal, Hyderabad, India",
-  github: "https://github.com/mattadinu9704637774-spec",
+  mapsUrl: "https://www.google.com/maps/place/Sri+Lakshmi+Narasimha+transport/@17.6285878,78.4872244,19.17z/data=!4m6!3m5!1s0x3bcb87002d9022b5:0x50d7d46fabb033e9!8m2!3d17.6285836!4d78.4872076!16s%2Fg%2F11x7cvxc_v?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D",
+  github: "https://github.com/dinu18s",
   linkedin: "https://www.linkedin.com/in/dinesh-matta-10242b372/",
   profileImage: "/profile.jpg",
   availableForHire: true
@@ -36,5 +37,11 @@ export const skillsData = {
   ]
 };
 
-// Projects list cleared completely
-export const projectsData = [];
+// Single project entry: "Dinesh's Projects" redirecting directly to GitHub profile
+export const projectsData = [
+  {
+    id: 1,
+    name: "Dinesh's Projects",
+    url: "https://github.com/dinu18s"
+  }
+];

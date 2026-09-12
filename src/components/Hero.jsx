@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Mail, Phone, MapPin, Sparkles, Code2, Database, Globe, Brain } from 'lucide-react';
+import { ArrowRight, Mail, Phone, MapPin, Sparkles, Code2, Database, Globe, Brain, Navigation } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { personalInfo, coreTech } from '../data/portfolioData';
 
@@ -54,22 +54,39 @@ export default function Hero() {
             {personalInfo.tagline}
           </p>
 
-          {/* Location & Quick Contact details */}
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            <span className="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800/80 px-3 py-1 rounded-md border border-slate-200 dark:border-slate-700">
-              <MapPin className="w-4 h-4 text-sky-500" />
-              {personalInfo.location}
-            </span>
+          {/* Swapped Email & Location Badges */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+            {/* 1. Email first */}
             <a
               href={`mailto:${personalInfo.email}`}
-              className="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 px-3 py-1 rounded-md border border-slate-200 dark:border-slate-700 transition-colors"
+              className="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors"
             >
               <Mail className="w-4 h-4 text-sky-500" />
               {personalInfo.email}
             </a>
+
+            {/* 2. Medchal Location second */}
+            <span className="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
+              <MapPin className="w-4 h-4 text-sky-500" />
+              {personalInfo.location}
+            </span>
           </div>
 
-          {/* CTA Button: Replaced "View Work" with "Projects" and removed "Contact Me" */}
+          {/* Directly underneath both: Clickable Google Maps Location Link */}
+          <div className="mt-3">
+            <a
+              href={personalInfo.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold rounded-lg bg-sky-500/10 dark:bg-sky-500/20 text-sky-600 dark:text-sky-400 hover:bg-sky-500/20 dark:hover:bg-sky-500/30 border border-sky-300/60 dark:border-sky-700/60 transition-all hover:scale-105 shadow-sm"
+            >
+              <Navigation className="w-3.5 h-3.5" />
+              <span>Location</span>
+              <span className="text-[10px]">↗</span>
+            </a>
+          </div>
+
+          {/* CTA Button: "Projects" only */}
           <div className="mt-8 flex items-center justify-center w-full sm:w-auto">
             <a
               href="#projects"
@@ -80,7 +97,7 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Social Quick Links: Exchanged places - LinkedIn first, then GitHub */}
+          {/* Social Quick Links: LinkedIn first, GitHub second */}
           <div className="mt-10 flex items-center justify-center gap-4">
             <a
               href={personalInfo.linkedin}
