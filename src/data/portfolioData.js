@@ -39,11 +39,11 @@ export const skillsData = {
   ]
 };
 
-// Single project entry: "Dinesh's Projects" redirecting directly to GitHub profile
+// Single project entry: "ChatZPT" redirecting to https://chatzpt-18-project.vercel.app/
 export const projectsData = [
   {
     id: 1,
-    name: "Dinesh's Projects",
-    url: "https://github.com/dinu18s"
+    name: "ChatZPT",
+    url: "https://chatzpt-18-project.vercel.app/"
   }
 ];
