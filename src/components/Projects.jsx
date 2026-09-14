@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, FolderGit2 } from 'lucide-react';
+import { ExternalLink, FolderCode } from 'lucide-react';
 import { projectsData } from '../data/portfolioData';
 
 export default function Projects() {
@@ -14,7 +14,7 @@ export default function Projects() {
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-sky-500 to-indigo-600 mx-auto mt-3 rounded-full" />
           <p className="mt-4 text-slate-600 dark:text-slate-400 text-lg">
-            Click on the project below to view source code and software repositories on GitHub.
+            Click on the project below to view software applications and repositories.
           </p>
         </div>
 
@@ -30,21 +30,21 @@ export default function Projects() {
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-500 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all">
-                  <FolderGit2 className="w-6 h-6" />
+                  <FolderCode className="w-6 h-6" />
                 </div>
                 <div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">
                     {project.name}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    View all software projects on GitHub repository
+                    View software projects
                   </p>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 text-slate-400 group-hover:text-sky-500 transition-colors shrink-0">
                 <span className="hidden sm:inline text-xs font-semibold text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/80 px-3 py-1 rounded-full border border-sky-200 dark:border-sky-800">
-                  GitHub Profile ↗
+                  Open Projects ↗
                 </span>
                 <ExternalLink className="w-5 h-5" />
               </div>
