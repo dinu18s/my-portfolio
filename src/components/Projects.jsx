@@ -14,12 +14,12 @@ export default function Projects() {
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-sky-500 to-indigo-600 mx-auto mt-3 rounded-full" />
           <p className="mt-4 text-slate-600 dark:text-slate-400 text-lg">
-            Click on the project below to open the application in a new tab.
+            Click on any project below to open the application in a new tab.
           </p>
         </div>
 
-        {/* Project Displaying ONLY "ChatZPT" */}
-        <div className="max-w-xl mx-auto">
+        {/* Project Card List */}
+        <div className="max-w-xl mx-auto space-y-4">
           {projectsData.map((project) => (
             <a
               key={project.id || project.name}

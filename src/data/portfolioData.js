@@ -39,11 +39,16 @@ export const skillsData = {
   ]
 };
 
-// Single project entry: "ChatZPT" redirecting to https://chatzpt-18-project.vercel.app/
+// Projects list displaying ChatZPT and QuizMaster links opening in a new tab
 export const projectsData = [
   {
     id: 1,
     name: "ChatZPT",
     url: "https://chatzpt-18-project.vercel.app/"
+  },
+  {
+    id: 2,
+    name: "QuizMaster",
+    url: "https://dinu18s.github.io/QuizMaster/"
   }
 ];
