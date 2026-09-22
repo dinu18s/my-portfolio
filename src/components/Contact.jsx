@@ -31,8 +31,7 @@ export default function Contact() {
         setSubmitted(true);
         form.reset();
       }
-    } catch (error) {
-      // Fallback submit
+    } catch {
       form.submit();
     } finally {
       setLoading(false);
@@ -164,7 +163,7 @@ export default function Contact() {
 
           </div>
 
-          {/* Right Column: Contact Form configured with Formspree */}
+          {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
             <div className="bg-white dark:bg-slate-800/90 p-8 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm relative">
               
