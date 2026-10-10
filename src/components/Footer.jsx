@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Mail, Phone, MapPin, Code2 } from 'lucide-react';
+import { ArrowUp, Mail, Phone, MapPin, Code2, MessageCircle } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 
@@ -65,11 +65,24 @@ export default function Footer() {
                   {personalInfo.email}
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                <a href={`tel:${personalInfo.phone}`} className="hover:text-emerald-400 transition-colors">
-                  +91 {personalInfo.phone}
-                </a>
+              <li className="flex flex-col gap-1.5">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <a href={`tel:${personalInfo.phone}`} className="hover:text-emerald-400 transition-colors">
+                    +91 {personalInfo.phone}
+                  </a>
+                </div>
+                <div className="ml-6">
+                  <a
+                    href={personalInfo.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-500/15 hover:bg-emerald-500 text-emerald-400 hover:text-white text-xs font-bold border border-emerald-500/30 transition-all"
+                  >
+                    <MessageCircle className="w-3 h-3" />
+                    Message ↗
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-indigo-400 shrink-0" />

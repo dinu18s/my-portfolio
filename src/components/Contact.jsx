@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare, Navigation } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare, Navigation, MessageCircle } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 import Tilt3D from './Tilt3D';
@@ -89,22 +89,40 @@ export default function Contact() {
                   </a>
 
                   {/* Phone Card */}
-                  <a
-                    href={`tel:${personalInfo.phone}`}
-                    className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200/60 dark:border-slate-700/60 hover:border-sky-500/50 hover:bg-sky-50/50 dark:hover:bg-slate-800 transition-all group"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                      <Phone className="w-6 h-6" />
+                  <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200/60 dark:border-slate-700/60 transition-all group">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                        <Phone className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                          Phone Number
+                        </p>
+                        <a
+                          href={`tel:${personalInfo.phone}`}
+                          className="text-sm font-bold text-slate-900 dark:text-white hover:text-emerald-500 transition-colors"
+                        >
+                          +91 {personalInfo.phone}
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                        Phone Number
-                      </p>
-                      <p className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">
-                        +91 {personalInfo.phone}
-                      </p>
+
+                    {/* Under the phone number: "Message" redirecting to WhatsApp */}
+                    <div className="mt-3 pt-2.5 border-t border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between">
+                      <span className="text-xs text-slate-500 dark:text-slate-400">
+                        Chat on WhatsApp:
+                      </span>
+                      <a
+                        href={personalInfo.whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold shadow-md shadow-emerald-500/20 hover:scale-105 active:scale-95 transition-all"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        Message ↗
+                      </a>
                     </div>
-                  </a>
+                  </div>
 
                   {/* Location Card */}
                   <a

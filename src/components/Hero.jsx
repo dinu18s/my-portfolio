@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Mail, Phone, MapPin, Code2, Database, Globe, Brain, Navigation, Terminal } from 'lucide-react';
+import { ArrowRight, Mail, Phone, MapPin, Code2, Database, Globe, Brain, Navigation, Terminal, MessageCircle } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { personalInfo, coreTech } from '../data/portfolioData';
 import Tilt3D from './Tilt3D';
@@ -113,7 +113,7 @@ export default function Hero() {
           </div>
 
           {/* Social Quick Links: LinkedIn first, GitHub second */}
-          <div className="mt-10 flex items-center justify-center gap-4">
+          <div className="mt-10 flex items-start justify-center gap-4">
             <a
               href={personalInfo.linkedin}
               target="_blank"
@@ -139,13 +139,24 @@ export default function Hero() {
             >
               <Mail className="w-5 h-5" />
             </a>
-            <a
-              href={`tel:${personalInfo.phone}`}
-              aria-label="Call Phone"
-              className="p-3.5 rounded-2xl bg-white/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md hover:scale-110"
-            >
-              <Phone className="w-5 h-5" />
-            </a>
+            <div className="flex flex-col items-center gap-1.5">
+              <a
+                href={`tel:${personalInfo.phone}`}
+                aria-label="Call Phone"
+                className="p-3.5 rounded-2xl bg-white/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 hover:bg-sky-50 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md hover:scale-110"
+              >
+                <Phone className="w-5 h-5" />
+              </a>
+              <a
+                href={personalInfo.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500 hover:text-white text-[11px] font-bold border border-emerald-400/30 transition-all hover:scale-105 shadow-sm"
+              >
+                <MessageCircle className="w-3 h-3" />
+                Message ↗
+              </a>
+            </div>
           </div>
 
           {/* Core Tech Grid wrapped in Cyber 3D Modules */}
