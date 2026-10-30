@@ -40,16 +40,16 @@ export const skillsData = {
   ]
 };
 
-// Projects list displaying ChatZPT and QuizMaster links opening in a new tab
+// Projects list displaying QuizMaster and ChatZPT links opening in a new tab
 export const projectsData = [
   {
     id: 1,
-    name: "ChatZPT",
-    url: "https://chatzpt-18-project.vercel.app/"
+    name: "QuizMaster",
+    url: "https://dinu18s.github.io/QuizMaster/"
   },
   {
     id: 2,
-    name: "QuizMaster",
-    url: "https://dinu18s.github.io/QuizMaster/"
+    name: "ChatZPT",
+    url: "https://chatzpt-18-project.vercel.app/"
   }
 ];
