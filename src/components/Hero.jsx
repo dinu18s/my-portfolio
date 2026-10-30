@@ -1,48 +1,107 @@
-import React from 'react';
-import { ArrowRight, Mail, Phone, MapPin, Code2, Database, Globe, Brain, Navigation, Terminal, MessageCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, Mail, Phone, MapPin, Code2, Database, Globe, Brain, Navigation, Terminal, MessageCircle, Rocket, Sparkles, CheckCircle2 } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { personalInfo, coreTech } from '../data/portfolioData';
 import Tilt3D from './Tilt3D';
 
 export default function Hero() {
   const techIcons = [Code2, Database, Globe, Brain];
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const { currentTarget, clientX, clientY } = e;
+    const { left, top, width, height } = currentTarget.getBoundingClientRect();
+    const x = (clientX - left) / width - 0.5;
+    const y = (clientY - top) / height - 0.5;
+    setMousePos({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setMousePos({ x: 0, y: 0 });
+  };
 
   return (
-    <section id="home" className="relative pt-28 pb-24 md:pt-36 md:pb-32 overflow-hidden z-10">
-      {/* Background Multi-Layer Cyber Glow Orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-gradient-to-tr from-sky-500/20 via-indigo-500/20 to-purple-600/20 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse" />
-      <div className="absolute top-1/3 right-12 w-80 h-80 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none -z-10" />
+    <section
+      id="home"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative pt-28 pb-24 md:pt-36 md:pb-32 overflow-hidden z-10"
+    >
+      {/* Background Multi-Layer Cyber Glow Orbs & Dynamic 3D Parallax */}
+      <div
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] bg-gradient-to-tr from-sky-500/15 via-indigo-600/15 to-purple-600/15 rounded-full blur-3xl pointer-events-none -z-10 transition-transform duration-700 ease-out"
+        style={{
+          transform: `translate(calc(-50% + ${mousePos.x * 40}px), calc(-50% + ${mousePos.y * 40}px))`
+        }}
+      />
+      <div
+        className="absolute top-1/3 right-8 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10 transition-transform duration-700 ease-out"
+        style={{
+          transform: `translate(${mousePos.x * -30}px, ${mousePos.y * -30}px)`
+        }}
+      />
+      <div
+        className="absolute bottom-10 left-8 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none -z-10 transition-transform duration-700 ease-out"
+        style={{
+          transform: `translate(${mousePos.x * 25}px, ${mousePos.y * 25}px)`
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
           
-          {/* Cyber HUD Profile Avatar Frame */}
-          <div className="relative mb-8 group cursor-pointer" style={{ transformStyle: 'preserve-3d' }}>
+          {/* 3D Floating Hologram & Cyber HUD Avatar Centerpiece */}
+          <div
+            className="relative mb-10 group cursor-pointer preserve-3d transition-transform duration-300 ease-out"
+            style={{
+              transform: `perspective(1000px) rotateY(${mousePos.x * 16}deg) rotateX(${mousePos.y * -16}deg)`
+            }}
+          >
             {/* Outer Holographic HUD Orbit Rings */}
-            <div className="absolute -inset-5 rounded-full border-2 border-sky-400/40 dark:border-sky-400/50 animate-[spin_10s_linear_infinite] pointer-events-none border-t-transparent border-b-transparent" />
-            <div className="absolute -inset-8 rounded-full border border-dashed border-indigo-400/30 dark:border-indigo-400/40 animate-[spin_16s_linear_infinite_reverse] pointer-events-none" />
+            <div className="absolute -inset-6 rounded-full border-2 border-sky-400/40 animate-[spin_12s_linear_infinite] pointer-events-none border-t-transparent border-b-transparent shadow-[0_0_20px_rgba(56,189,248,0.3)]" />
+            <div className="absolute -inset-10 rounded-full border border-dashed border-purple-400/35 animate-[spin_18s_linear_infinite_reverse] pointer-events-none" />
+            <div className="absolute -inset-14 rounded-full border border-indigo-500/20 pointer-events-none opacity-60 hidden sm:block" />
 
-            {/* Glowing Backdrop */}
-            <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 blur-lg opacity-80 group-hover:opacity-100 transition duration-500 animate-pulse" />
+            {/* Orbiting 3D Satellite Feature Badges */}
+            <div
+              className="hidden md:flex absolute -top-5 -right-16 z-30 items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-sky-400/40 shadow-lg shadow-sky-500/20 backdrop-blur-md animate-float-3d"
+              style={{ transform: `translateZ(40px)` }}
+            >
+              <Code2 className="w-4 h-4 text-sky-400" />
+              <span className="text-xs font-bold text-sky-200">Python & SQL</span>
+            </div>
+
+            <div
+              className="hidden md:flex absolute -bottom-4 -left-16 z-30 items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-emerald-400/40 shadow-lg shadow-emerald-500/20 backdrop-blur-md animate-float-3d"
+              style={{ animationDelay: '1.5s', transform: `translateZ(40px)` }}
+            >
+              <Globe className="w-4 h-4 text-emerald-400" />
+              <span className="text-xs font-bold text-emerald-300 flex items-center gap-1">
+                Web Dev <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> 100%
+              </span>
+            </div>
+
+            {/* Glowing Backdrop Aura */}
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 blur-xl opacity-80 group-hover:opacity-100 transition duration-500 animate-pulse" />
             
-            <Tilt3D maxTilt={20} scale={1.06} className="rounded-full shadow-2xl">
+            <Tilt3D maxTilt={18} scale={1.05} className="rounded-full shadow-2xl">
               <div className="relative p-1 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500">
                 <img
                   src={personalInfo.profileImage}
                   alt={personalInfo.name}
-                  className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover border-4 border-white dark:border-slate-950 shadow-2xl"
+                  className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover border-4 border-slate-950 shadow-2xl"
                 />
               </div>
             </Tilt3D>
 
-            {/* Cyber Status Badge */}
-            <span className="absolute bottom-3 right-3 w-7 h-7 bg-emerald-500 border-4 border-white dark:border-slate-950 rounded-full shadow-lg z-20 animate-pulse flex items-center justify-center">
+            {/* Cyber Status Pulse Beacon */}
+            <span className="absolute bottom-3 right-3 w-7 h-7 bg-emerald-500 border-4 border-slate-950 rounded-full shadow-lg z-20 animate-pulse flex items-center justify-center">
               <span className="w-2.5 h-2.5 bg-white rounded-full" />
             </span>
           </div>
 
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4.5 py-1.5 rounded-full bg-gradient-to-r from-sky-500/10 via-indigo-500/10 to-purple-500/10 dark:from-sky-500/20 dark:to-purple-500/20 border border-sky-400/40 dark:border-sky-500/40 text-sky-700 dark:text-sky-300 text-xs font-extrabold tracking-wider uppercase mb-6 shadow-sm backdrop-blur-md">
+          <div className="inline-flex items-center gap-2.5 px-4.5 py-1.5 rounded-full bg-gradient-to-r from-sky-500/10 via-indigo-500/10 to-purple-500/10 border border-sky-400/40 text-sky-300 text-xs font-extrabold tracking-wider uppercase mb-5 shadow-sm backdrop-blur-md">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500"></span>
@@ -50,39 +109,39 @@ export default function Hero() {
             Available for Opportunities
           </div>
 
-          {/* Main Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.12]">
+          {/* Main Name & Title */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-[1.12]">
             Hi, I'm{' '}
-            <span className="text-gradient-cyan">
+            <span className="text-gradient-cyan drop-shadow-[0_0_25px_rgba(56,189,248,0.35)]">
               {personalInfo.name}
             </span>
           </h1>
 
           {/* Role Sub-Badge */}
-          <div className="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 backdrop-blur-md">
-            <Terminal className="w-4 h-4 text-sky-500" />
-            <p className="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-200">
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-slate-900/80 border border-slate-700/80 backdrop-blur-md shadow-sm">
+            <Terminal className="w-4 h-4 text-sky-400" />
+            <p className="text-base sm:text-lg font-bold text-slate-200">
               {personalInfo.title}
             </p>
           </div>
 
           {/* Short Bio */}
-          <p className="mt-6 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
             {personalInfo.tagline}
           </p>
 
-          {/* Swapped Email & Location Badges */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+          {/* Email & Location Badges */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-300">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="inline-flex items-center gap-2 bg-white/90 dark:bg-slate-800/90 hover:bg-sky-50 dark:hover:bg-slate-700/90 px-4 py-2 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 transition-all shadow-sm font-semibold text-slate-700 dark:text-slate-200"
+              className="inline-flex items-center gap-2 bg-slate-900/85 hover:bg-slate-800 px-4 py-2 rounded-2xl border border-slate-700/80 transition-all shadow-sm font-semibold text-slate-200 hover:border-sky-500/50"
             >
-              <Mail className="w-4 h-4 text-sky-500" />
+              <Mail className="w-4 h-4 text-sky-400" />
               {personalInfo.email}
             </a>
 
-            <span className="inline-flex items-center gap-2 bg-white/90 dark:bg-slate-800/90 px-4 py-2 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm font-semibold text-slate-700 dark:text-slate-200">
-              <MapPin className="w-4 h-4 text-sky-500" />
+            <span className="inline-flex items-center gap-2 bg-slate-900/85 px-4 py-2 rounded-2xl border border-slate-700/80 shadow-sm font-semibold text-slate-200">
+              <MapPin className="w-4 h-4 text-sky-400" />
               {personalInfo.location}
             </span>
           </div>
@@ -93,33 +152,41 @@ export default function Hero() {
               href={personalInfo.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4.5 py-1.5 text-xs font-bold rounded-xl bg-sky-500/10 dark:bg-sky-500/20 text-sky-600 dark:text-sky-400 hover:bg-sky-500/25 dark:hover:bg-sky-500/35 border border-sky-400/50 dark:border-sky-600/50 transition-all hover:scale-105 shadow-sm"
+              className="inline-flex items-center gap-2 px-4.5 py-1.5 text-xs font-bold rounded-xl bg-sky-500/15 text-sky-400 hover:bg-sky-500/25 border border-sky-500/40 transition-all hover:scale-105 shadow-sm"
             >
-              <Navigation className="w-3.5 h-3.5 text-sky-500" />
+              <Navigation className="w-3.5 h-3.5 text-sky-400" />
               <span>Location</span>
               <span className="text-[10px]">↗</span>
             </a>
           </div>
 
-          {/* Cyber CTA Button: "Projects" */}
-          <div className="mt-9 flex items-center justify-center w-full sm:w-auto">
+          {/* 3D Cyber CTA Buttons: "View Projects" & "Hire Me" */}
+          <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
             <a
               href="#projects"
-              className="animate-sheen w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-9 py-4 text-base font-extrabold rounded-2xl text-white bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-600 hover:from-sky-600 hover:to-purple-700 shadow-[0_0_30px_rgba(14,165,233,0.35)] hover:shadow-[0_0_40px_rgba(14,165,233,0.5)] transition-all hover:scale-105 active:scale-95"
+              className="animate-sheen w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-base font-extrabold rounded-2xl text-white bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-600 hover:from-sky-600 hover:to-purple-700 shadow-[0_0_30px_rgba(14,165,233,0.35)] hover:shadow-[0_0_45px_rgba(14,165,233,0.55)] transition-all hover:scale-105 active:scale-95"
             >
-              Projects
-              <ArrowRight className="w-5 h-5" />
+              <Rocket className="w-5 h-5 text-white" />
+              View Projects
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <a
+              href="#contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-base font-extrabold rounded-2xl text-slate-100 bg-slate-900/85 hover:bg-slate-800 border border-sky-400/40 hover:border-sky-400 shadow-[0_0_20px_rgba(56,189,248,0.2)] hover:shadow-[0_0_30px_rgba(56,189,248,0.35)] transition-all hover:scale-105 active:scale-95 backdrop-blur-md"
+            >
+              <Sparkles className="w-4 h-4 text-sky-400" />
+              Hire Me
             </a>
           </div>
 
-          {/* Social Quick Links: LinkedIn first, GitHub second */}
+          {/* Social Quick Links: LinkedIn first, GitHub second, Email, Phone with WhatsApp */}
           <div className="mt-10 flex items-start justify-center gap-4">
             <a
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
-              className="p-3.5 rounded-2xl bg-white/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md hover:scale-110"
+              className="p-3.5 rounded-2xl bg-slate-900/90 text-slate-300 hover:text-sky-400 hover:bg-slate-800 transition-all border border-slate-700/80 shadow-md hover:scale-110 hover:border-sky-500/50"
             >
               <Linkedin className="w-5 h-5" />
             </a>
@@ -128,14 +195,14 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
-              className="p-3.5 rounded-2xl bg-white/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md hover:scale-110"
+              className="p-3.5 rounded-2xl bg-slate-900/90 text-slate-300 hover:text-sky-400 hover:bg-slate-800 transition-all border border-slate-700/80 shadow-md hover:scale-110 hover:border-sky-500/50"
             >
               <Github className="w-5 h-5" />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
               aria-label="Send Email"
-              className="p-3.5 rounded-2xl bg-white/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md hover:scale-110"
+              className="p-3.5 rounded-2xl bg-slate-900/90 text-slate-300 hover:text-sky-400 hover:bg-slate-800 transition-all border border-slate-700/80 shadow-md hover:scale-110 hover:border-sky-500/50"
             >
               <Mail className="w-5 h-5" />
             </a>
@@ -143,7 +210,7 @@ export default function Hero() {
               <a
                 href={`tel:${personalInfo.phone}`}
                 aria-label="Call Phone"
-                className="p-3.5 rounded-2xl bg-white/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 hover:bg-sky-50 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md hover:scale-110"
+                className="p-3.5 rounded-2xl bg-slate-900/90 text-slate-300 hover:text-emerald-400 hover:bg-slate-800 transition-all border border-slate-700/80 shadow-md hover:scale-110 hover:border-emerald-500/50"
               >
                 <Phone className="w-5 h-5" />
               </a>
@@ -151,7 +218,7 @@ export default function Hero() {
                 href={personalInfo.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500 hover:text-white text-[11px] font-bold border border-emerald-400/30 transition-all hover:scale-105 shadow-sm"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500 hover:text-white text-[11px] font-bold border border-emerald-400/30 transition-all hover:scale-105 shadow-sm"
               >
                 <MessageCircle className="w-3 h-3" />
                 Message ↗
@@ -160,8 +227,8 @@ export default function Hero() {
           </div>
 
           {/* Core Tech Grid wrapped in Cyber 3D Modules */}
-          <div className="mt-14 pt-8 border-t border-slate-200/80 dark:border-slate-800 w-full">
-            <h3 className="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6">
+          <div className="mt-14 pt-8 border-t border-slate-800/80 w-full">
+            <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">
               Core Tech & Competencies
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
@@ -169,13 +236,13 @@ export default function Hero() {
                 const IconComp = techIcons[idx] || Code2;
                 return (
                   <Tilt3D key={idx} maxTilt={14} scale={1.04}>
-                    <div className="p-4 rounded-2xl bg-white/90 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 flex items-center gap-4 shadow-md backdrop-blur-md group hover:border-sky-500/60 transition-colors">
+                    <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-center gap-4 shadow-md backdrop-blur-md group hover:border-sky-500/60 transition-colors">
                       <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-500 to-purple-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-sky-500/25 group-hover:scale-110 transition-transform">
                         <IconComp className="w-5.5 h-5.5" />
                       </div>
                       <div>
                         <p className="text-xs text-slate-400 font-semibold">{tech.label}</p>
-                        <p className="text-sm font-black text-slate-900 dark:text-white mt-0.5">{tech.value}</p>
+                        <p className="text-sm font-black text-white mt-0.5">{tech.value}</p>
                       </div>
                     </div>
                   </Tilt3D>

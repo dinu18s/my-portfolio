@@ -49,6 +49,7 @@ export default function Tilt3D({ children, className = '', maxTilt = 15, perspec
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onTouchEnd={handleMouseLeave}
       style={{ transformStyle: 'preserve-3d', ...style }}
       className={`relative overflow-hidden ${className}`}
     >

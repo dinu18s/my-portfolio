@@ -40,67 +40,71 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-slate-100/50 dark:bg-slate-900/40 relative z-10">
+    <section id="contact" className="py-24 bg-slate-950/70 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Get In <span className="text-sky-500">Touch</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-500/10 border border-sky-400/30 text-sky-400 text-xs font-bold uppercase tracking-widest mb-3">
+            <MessageSquare className="w-3.5 h-3.5" />
+            Communication Hub
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+            Get In <span className="text-gradient-cyan">Touch</span>
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-sky-500 to-indigo-600 mx-auto mt-3 rounded-full" />
-          <p className="mt-4 text-slate-600 dark:text-slate-400 text-lg">
+          <div className="w-20 h-1 bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-600 mx-auto mt-4 rounded-full shadow-[0_0_15px_rgba(56,189,248,0.5)]" />
+          <p className="mt-4 text-slate-300 text-lg">
             Have a project in mind, job opportunity, or technical inquiry? Feel free to reach out directly.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* Left Column: 3D Contact Cards */}
           <div className="lg:col-span-5 space-y-6">
-            <Tilt3D maxTilt={8} scale={1.01} className="rounded-3xl shadow-lg">
-              <div className="bg-white/90 dark:bg-slate-800/90 p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm space-y-6 backdrop-blur-md">
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                  <MessageSquare className="w-6 h-6 text-sky-500" />
-                  Contact Information
+            <Tilt3D maxTilt={8} scale={1.01} className="rounded-3xl shadow-2xl">
+              <div className="glass-panel p-8 rounded-3xl border border-slate-700/80 shadow-2xl space-y-6 backdrop-blur-xl">
+                <h3 className="text-2xl font-black text-white flex items-center gap-2">
+                  <MessageSquare className="w-6 h-6 text-sky-400" />
+                  Direct Contact
                 </h3>
-                <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                <p className="text-slate-300 text-sm leading-relaxed">
                   Reach out to me via email or phone. I'm open to full-time roles, software developer positions, and technical collaborations.
                 </p>
 
-                <div className="space-y-5 pt-2">
+                <div className="space-y-4 pt-2">
                   
                   {/* Email Card */}
                   <a
                     href={`mailto:${personalInfo.email}`}
-                    className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200/60 dark:border-slate-700/60 hover:border-sky-500/50 hover:bg-sky-50/50 dark:hover:bg-slate-800 transition-all group"
+                    className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/50 hover:bg-slate-900 transition-all group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-xl bg-sky-500/15 text-sky-400 flex items-center justify-center shrink-0 border border-sky-400/20 group-hover:scale-110 transition-transform">
                       <Mail className="w-6 h-6" />
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                      <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
                         Email Address
                       </p>
-                      <p className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-sky-500 transition-colors">
+                      <p className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">
                         {personalInfo.email}
                       </p>
                     </div>
                   </a>
 
-                  {/* Phone Card */}
-                  <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200/60 dark:border-slate-700/60 transition-all group">
+                  {/* Phone Card with WhatsApp Message Link */}
+                  <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 transition-all group">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                      <div className="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-400/20 group-hover:scale-110 transition-transform">
                         <Phone className="w-6 h-6" />
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
                           Phone Number
                         </p>
                         <a
                           href={`tel:${personalInfo.phone}`}
-                          className="text-sm font-bold text-slate-900 dark:text-white hover:text-emerald-500 transition-colors"
+                          className="text-sm font-bold text-white hover:text-emerald-400 transition-colors"
                         >
                           +91 {personalInfo.phone}
                         </a>
@@ -108,8 +112,8 @@ export default function Contact() {
                     </div>
 
                     {/* Under the phone number: "Message" redirecting to WhatsApp */}
-                    <div className="mt-3 pt-2.5 border-t border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between">
-                      <span className="text-xs text-slate-500 dark:text-slate-400">
+                    <div className="mt-3 pt-2.5 border-t border-slate-800 flex items-center justify-between">
+                      <span className="text-xs text-slate-400">
                         Chat on WhatsApp:
                       </span>
                       <a
@@ -129,21 +133,21 @@ export default function Contact() {
                     href={personalInfo.mapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200/60 dark:border-slate-700/60 hover:border-sky-500/50 hover:bg-sky-50/50 dark:hover:bg-slate-800 transition-all group"
+                    className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/50 hover:bg-slate-900 transition-all group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-xl bg-indigo-500/15 text-indigo-400 flex items-center justify-center shrink-0 border border-indigo-400/20 group-hover:scale-110 transition-transform">
                       <MapPin className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
                           Location
                         </p>
-                        <span className="text-xs font-bold text-sky-500 flex items-center gap-1">
+                        <span className="text-xs font-bold text-sky-400 flex items-center gap-1">
                           <Navigation className="w-3 h-3" /> Map ↗
                         </span>
                       </div>
-                      <p className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-sky-500 transition-colors">
+                      <p className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">
                         {personalInfo.location}
                       </p>
                     </div>
@@ -152,7 +156,7 @@ export default function Contact() {
                 </div>
 
                 {/* Social Links */}
-                <div className="pt-6 border-t border-slate-100 dark:border-slate-700/60">
+                <div className="pt-5 border-t border-slate-800">
                   <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
                     Connect On Social Media
                   </p>
@@ -161,7 +165,7 @@ export default function Contact() {
                       href={personalInfo.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 hover:bg-sky-500/20 font-semibold text-sm transition-colors border border-sky-200 dark:border-sky-800"
+                      className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-sky-500/15 text-sky-300 hover:bg-sky-500/25 font-semibold text-sm transition-colors border border-sky-400/30"
                     >
                       <Linkedin className="w-4 h-4" />
                       LinkedIn
@@ -170,7 +174,7 @@ export default function Contact() {
                       href={personalInfo.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-600 font-semibold text-sm transition-colors border border-slate-200 dark:border-slate-600"
+                      className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 font-semibold text-sm transition-colors border border-slate-700/80"
                     >
                       <Github className="w-4 h-4" />
                       GitHub
@@ -184,20 +188,20 @@ export default function Contact() {
 
           {/* Right Column: 3D Form Card */}
           <div className="lg:col-span-7">
-            <Tilt3D maxTilt={8} scale={1.01} className="rounded-3xl shadow-lg">
-              <div className="bg-white/90 dark:bg-slate-800/90 p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm relative backdrop-blur-md">
+            <Tilt3D maxTilt={8} scale={1.01} className="rounded-3xl shadow-2xl">
+              <div className="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-700/80 shadow-2xl relative backdrop-blur-xl">
                 
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                <h3 className="text-2xl font-black text-white mb-2">
                   Send a Message
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                <p className="text-slate-300 text-sm mb-6">
                   Fill out the form below and I will get back to you promptly at {personalInfo.email}.
                 </p>
 
                 {submitted && (
-                  <div className="mb-6 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 flex items-center gap-3 animate-in fade-in duration-300">
+                  <div className="mb-6 p-4 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 flex items-center gap-3 animate-in fade-in duration-300">
                     <CheckCircle2 className="w-5 h-5 shrink-0" />
-                    <span className="text-sm font-medium">Thank you! Your message has been sent successfully.</span>
+                    <span className="text-sm font-semibold">Thank you! Your message has been sent successfully.</span>
                   </div>
                 )}
 
@@ -209,7 +213,7 @@ export default function Contact() {
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
+                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
                         Your Name *
                       </label>
                       <input
@@ -217,11 +221,11 @@ export default function Contact() {
                         name="name"
                         required
                         placeholder="e.g. John Doe"
-                        className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-sm"
+                        className="w-full px-4 py-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-sm"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
+                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
                         Your Email *
                       </label>
                       <input
@@ -230,26 +234,26 @@ export default function Contact() {
                         id="_replyto"
                         required
                         placeholder="e.g. john@example.com"
-                        className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-sm"
+                        className="w-full px-4 py-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-sm"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
                       Subject *
                     </label>
                     <input
                       type="text"
                       name="subject"
                       required
-                      placeholder="e.g. Job Opportunity / Project Discussion"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-sm"
+                      placeholder="e.g. Job Opportunity / Technical Discussion"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
                       Message *
                     </label>
                     <textarea
@@ -257,14 +261,14 @@ export default function Contact() {
                       rows="5"
                       required
                       placeholder="Write your message here..."
-                      className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-sm resize-none"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-sm resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 rounded-2xl text-white font-bold bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-600 hover:from-sky-600 hover:to-purple-700 shadow-xl shadow-sky-500/25 transition-all hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 rounded-2xl text-white font-extrabold bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-600 hover:from-sky-600 hover:to-purple-700 shadow-xl shadow-sky-500/25 transition-all hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {loading ? (
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />

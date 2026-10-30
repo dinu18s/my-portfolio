@@ -9,7 +9,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-900 text-slate-400 border-t border-slate-800 pt-16 pb-12 relative">
+    <footer className="bg-slate-950 text-slate-400 border-t border-slate-800/80 pt-16 pb-12 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
@@ -46,6 +46,9 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#projects" className="hover:text-sky-400 transition-colors">Projects</a>
+              </li>
+              <li>
+                <a href="#experience" className="hover:text-sky-400 transition-colors">Experience</a>
               </li>
               <li>
                 <a href="#contact" className="hover:text-sky-400 transition-colors">Contact</a>

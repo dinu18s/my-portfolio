@@ -45,11 +45,100 @@ export const projectsData = [
   {
     id: 1,
     name: "QuizMaster",
-    url: "https://dinu18s.github.io/QuizMaster/"
+    tagline: "Interactive Quiz & Knowledge Testing Platform",
+    description: "Dynamic web-based quiz application featuring categorized timed questions, real-time score tracking, responsive UI, and instant analytical feedback.",
+    tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+    url: "https://dinu18s.github.io/QuizMaster/",
+    github: "https://github.com/dinu18s"
   },
   {
     id: 2,
     name: "ChatZPT",
-    url: "https://chatzpt-18-project.vercel.app/"
+    tagline: "AI-Powered Conversational Assistant",
+    description: "Interactive modern chat application with real-time responsive messaging interface, conversational prompts, smooth animations, and clean state management.",
+    tags: ["React", "JavaScript", "Tailwind CSS", "Vercel"],
+    url: "https://chatzpt-18-project.vercel.app/",
+    github: "https://github.com/dinu18s"
+  }
+];
+
+export const educationData = [
+  {
+    id: 1,
+    degree: "B.Tech in Computer Science & Engineering (AIML)",
+    institution: "Institute of Aeronautical Engineering (IARE)",
+    location: "Hyderabad, India",
+    period: "2022 - 2026",
+    score: "Undergraduate",
+    description: "Rigorous curriculum encompassing Python programming, Relational Databases (SQL), Core Web Technologies, Artificial Intelligence, Machine Learning algorithms, Data Structures, and Analytical Reasoning.",
+    highlights: [
+      "Specialized coursework in AI/ML, Python, and Database Management Systems",
+      "Hands-on project work developing responsive applications and algorithmic solutions",
+      "Active participant in technical workshops, hackathons, and problem-solving contests"
+    ]
+  }
+];
+
+export const certificationsData = [
+  {
+    id: 1,
+    title: "NPTEL Certification",
+    issuer: "NPTEL & IITs",
+    category: "Computer Science & Problem Solving",
+    date: "Completed",
+    description: "Nationally recognized certification demonstrating strong core programming logic, structured problem-solving, and algorithmic thinking."
+  },
+  {
+    id: 2,
+    title: "IARE (AIML) Technical Certification",
+    issuer: "Institute of Aeronautical Engineering",
+    category: "Artificial Intelligence & Machine Learning",
+    date: "Certified",
+    description: "Hands-on certification covering core machine learning paradigms, data exploration, predictive modeling, and intelligent software systems."
+  },
+  {
+    id: 3,
+    title: "Arm Robotic Systems Workshop",
+    issuer: "Technical Training & Robotics Lab",
+    category: "Hardware & Automation",
+    date: "Certified",
+    description: "Practical engineering training in robotic arm kinematics, microcontroller integration, sensor interfacing, and automated task execution."
+  },
+  {
+    id: 4,
+    title: "Web Development (100% Completed)",
+    issuer: "Self-Paced Professional Learning",
+    category: "Full Stack Fundamentals",
+    date: "100% Mastered",
+    description: "Comprehensive mastery of HTML5, CSS3, DOM manipulation, responsive layouts, web accessibility standards, and web application architecture."
+  }
+];
+
+export const experienceData = [
+  {
+    id: 1,
+    role: "B.Tech Undergrad — Computer Science (AIML)",
+    company: "Institute of Aeronautical Engineering (IARE)",
+    period: "2022 - Present",
+    location: "Hyderabad, India",
+    description: "Pursuing Bachelor of Technology with focus on Python scripting, SQL database design, web application development, and computational logic.",
+    highlights: [
+      "Engineered real-world applications including QuizMaster and ChatZPT",
+      "Mastered 100% of Web Development fundamentals and front-end architectures",
+      "Consistently solved algorithmic problem-solving challenges with strong logical reasoning"
+    ]
+  },
+  {
+    id: 2,
+    role: "Independent Software & Python Developer",
+    company: "Personal Projects & Open Source",
+    period: "2023 - Present",
+    location: "Medchal, Hyderabad",
+    description: "Building production-grade web tools, interactive applications, and algorithmic automation scripts utilizing Python, SQL, and modern web technologies.",
+    highlights: [
+      "Architected QuizMaster: an interactive test evaluation platform with instant grading",
+      "Developed ChatZPT: a reactive conversational UI hosted live on Vercel",
+      "Authored clean, maintainable, modular code adhering to modern web performance standards"
+    ]
   }
 ];
