@@ -31,7 +31,7 @@ export const skillsData = {
   ],
   frameworks: [
     { name: "Python Web Frameworks", level: 55, icon: "Server", description: "Backend web application development fundamentals" },
-    { name: "Web Fundamentals", level: 60, icon: "Globe", description: "DOM structure, HTTP standards, and web concepts" }
+    { name: "Web Development", level: 100, icon: "Globe", description: "DOM structure, HTTP standards, and modern web application development" }
   ],
   tools: [
     { name: "Git & GitHub", level: 75, icon: "GitBranch", description: "Version control and code repository management" },

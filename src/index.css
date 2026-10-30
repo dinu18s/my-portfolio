@@ -51,6 +51,26 @@
   animation: sheen 3s infinite;
 }
 
+/* Smooth Skill Progress Bar Fill Animation */
+@keyframes skillProgressFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target-width);
+  }
+}
+
+.animate-skill-progress {
+  animation: skillProgressFill 1.2s cubic-bezier(0.16, 1, 0.3, 1) ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-skill-progress {
+    animation: none;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
