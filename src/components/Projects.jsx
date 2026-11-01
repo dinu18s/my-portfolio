@@ -25,14 +25,18 @@ export default function Projects() {
         </div>
 
         {/* 3D Cyber Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projectsData.map((project, idx) => (
             <Tilt3D key={project.id || project.name} maxTilt={12} scale={1.03} className="rounded-3xl shadow-2xl h-full">
-              <div className="glass-panel p-8 rounded-3xl border border-slate-700/80 shadow-2xl hover:border-sky-500/60 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full group">
+              <div className="glass-panel p-7 rounded-3xl border border-slate-700/80 shadow-2xl hover:border-sky-500/60 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full group">
                 
                 {/* Ambient Corner Glow */}
                 <div className={`absolute top-0 right-0 w-44 h-44 rounded-bl-full pointer-events-none transition-opacity duration-500 ${
-                  idx === 0 ? 'bg-sky-500/15 group-hover:bg-sky-500/25' : 'bg-purple-600/15 group-hover:bg-purple-600/25'
+                  idx % 3 === 0
+                    ? 'bg-sky-500/15 group-hover:bg-sky-500/25'
+                    : idx % 3 === 1
+                    ? 'bg-purple-600/15 group-hover:bg-purple-600/25'
+                    : 'bg-emerald-500/15 group-hover:bg-emerald-500/25'
                 }`} />
 
                 <div>

@@ -40,10 +40,19 @@ export const skillsData = {
   ]
 };
 
-// Projects list displaying QuizMaster and ChatZPT links opening in a new tab
+// Projects list: Chronosmatch first, followed by QuizMaster and ChatZPT
 export const projectsData = [
   {
     id: 1,
+    name: "Chronosmatch",
+    tagline: "Real-Time Virtual Paper Trading & Matching Terminal",
+    description: "High-performance paper trading terminal and zero-copy electronic matching engine with real-time order books, virtual portfolio execution, and performance analytics.",
+    tags: ["Python", "JavaScript", "HTML5", "CSS3", "Financial Algorithms"],
+    url: "https://dinu18s.github.io/ChronosMatch/",
+    github: "https://github.com/dinu18s/ChronosMatch"
+  },
+  {
+    id: 2,
     name: "QuizMaster",
     tagline: "Interactive Quiz & Knowledge Testing Platform",
     description: "Dynamic web-based quiz application featuring categorized timed questions, real-time score tracking, responsive UI, and instant analytical feedback.",
@@ -52,7 +61,7 @@ export const projectsData = [
     github: "https://github.com/dinu18s"
   },
   {
-    id: 2,
+    id: 3,
     name: "ChatZPT",
     tagline: "AI-Powered Conversational Assistant",
     description: "Interactive modern chat application with real-time responsive messaging interface, conversational prompts, smooth animations, and clean state management.",
@@ -123,7 +132,7 @@ export const experienceData = [
     location: "Hyderabad, India",
     description: "Pursuing Bachelor of Technology with focus on Python scripting, SQL database design, web application development, and computational logic.",
     highlights: [
-      "Engineered real-world applications including QuizMaster and ChatZPT",
+      "Engineered real-world applications including Chronosmatch, QuizMaster, and ChatZPT",
       "Mastered 100% of Web Development fundamentals and front-end architectures",
       "Consistently solved algorithmic problem-solving challenges with strong logical reasoning"
     ]
@@ -136,8 +145,8 @@ export const experienceData = [
     location: "Medchal, Hyderabad",
     description: "Building production-grade web tools, interactive applications, and algorithmic automation scripts utilizing Python, SQL, and modern web technologies.",
     highlights: [
-      "Architected QuizMaster: an interactive test evaluation platform with instant grading",
-      "Developed ChatZPT: a reactive conversational UI hosted live on Vercel",
+      "Architected Chronosmatch: real-time virtual trading terminal with high-throughput matching engine",
+      "Developed QuizMaster and ChatZPT with responsive UI and live deployments",
       "Authored clean, maintainable, modular code adhering to modern web performance standards"
     ]
   }
