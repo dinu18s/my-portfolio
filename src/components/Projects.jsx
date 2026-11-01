@@ -67,20 +67,6 @@ export default function Projects() {
                   <p className="text-slate-300 text-sm leading-relaxed mb-6 relative z-10">
                     {project.description}
                   </p>
-
-                  {/* Tech Stack Tags */}
-                  {project.tags && (
-                    <div className="flex flex-wrap gap-2 mb-8 relative z-10">
-                      {project.tags.map((tag, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="px-3 py-1 rounded-xl text-xs font-semibold bg-slate-900/90 text-sky-300 border border-slate-700/80 shadow-sm"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
                 </div>
 
                 {/* Card Action Buttons */}

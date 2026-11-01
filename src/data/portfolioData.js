@@ -47,7 +47,6 @@ export const projectsData = [
     name: "Chronosmatch",
     tagline: "Real-Time Virtual Paper Trading & Matching Terminal",
     description: "High-performance paper trading terminal and zero-copy electronic matching engine with real-time order books, virtual portfolio execution, and performance analytics.",
-    tags: ["Python", "JavaScript", "HTML5", "CSS3", "Financial Algorithms"],
     url: "https://dinu18s.github.io/ChronosMatch/",
     github: "https://github.com/dinu18s/ChronosMatch"
   },
@@ -56,7 +55,6 @@ export const projectsData = [
     name: "QuizMaster",
     tagline: "Interactive Quiz & Knowledge Testing Platform",
     description: "Dynamic web-based quiz application featuring categorized timed questions, real-time score tracking, responsive UI, and instant analytical feedback.",
-    tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
     url: "https://dinu18s.github.io/QuizMaster/",
     github: "https://github.com/dinu18s"
   },
@@ -65,7 +63,6 @@ export const projectsData = [
     name: "ChatZPT",
     tagline: "AI-Powered Conversational Assistant",
     description: "Interactive modern chat application with real-time responsive messaging interface, conversational prompts, smooth animations, and clean state management.",
-    tags: ["React", "JavaScript", "Tailwind CSS", "Vercel"],
     url: "https://chatzpt-18-project.vercel.app/",
     github: "https://github.com/dinu18s"
   }
