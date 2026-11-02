@@ -48,7 +48,8 @@ export const projectsData = [
     tagline: "Real-Time Virtual Paper Trading & Matching Terminal",
     description: "High-performance paper trading terminal and zero-copy electronic matching engine with real-time order books, virtual portfolio execution, and performance analytics.",
     url: "https://dinu18s.github.io/ChronosMatch/",
-    github: "https://github.com/dinu18s/ChronosMatch"
+    github: "https://github.com/dinu18s/ChronosMatch",
+    actionLabel: "View Project"
   },
   {
     id: 2,
@@ -56,7 +57,8 @@ export const projectsData = [
     tagline: "Interactive Quiz & Knowledge Testing Platform",
     description: "Dynamic web-based quiz application featuring categorized timed questions, real-time score tracking, responsive UI, and instant analytical feedback.",
     url: "https://dinu18s.github.io/QuizMaster/",
-    github: "https://github.com/dinu18s"
+    github: "https://github.com/dinu18s",
+    actionLabel: "Launch Live Quiz"
   },
   {
     id: 3,
@@ -64,7 +66,8 @@ export const projectsData = [
     tagline: "AI-Powered Conversational Assistant",
     description: "Interactive modern chat application with real-time responsive messaging interface, conversational prompts, smooth animations, and clean state management.",
     url: "https://chatzpt-18-project.vercel.app/",
-    github: "https://github.com/dinu18s"
+    github: "https://github.com/dinu18s",
+    actionLabel: "View Project"
   }
 ];
 

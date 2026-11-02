@@ -28,7 +28,27 @@ export default function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projectsData.map((project, idx) => (
             <Tilt3D key={project.id || project.name} maxTilt={12} scale={1.03} className="rounded-3xl shadow-2xl h-full">
-              <div className="glass-panel p-7 rounded-3xl border border-slate-700/80 shadow-2xl hover:border-sky-500/60 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full group">
+              <div
+                role="link"
+                tabIndex={0}
+                aria-label={`Open ${project.name} live application`}
+                onClick={(e) => {
+                  if (e.target.closest('a')) return;
+                  if (project.url) {
+                    window.open(project.url, '_blank', 'noopener,noreferrer');
+                  }
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    if (e.target.closest('a')) return;
+                    e.preventDefault();
+                    if (project.url) {
+                      window.open(project.url, '_blank', 'noopener,noreferrer');
+                    }
+                  }
+                }}
+                className="glass-panel p-7 rounded-3xl border border-slate-700/80 shadow-2xl hover:border-sky-500/60 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full group cursor-pointer focus:outline-none focus:ring-2 focus:ring-sky-400/50"
+              >
                 
                 {/* Ambient Corner Glow */}
                 <div className={`absolute top-0 right-0 w-44 h-44 rounded-bl-full pointer-events-none transition-opacity duration-500 ${
@@ -47,9 +67,18 @@ export default function Projects() {
                         <Rocket className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-black text-white group-hover:text-sky-400 transition-colors flex items-center gap-2">
-                          {project.name}
-                          <Sparkles className="w-4 h-4 text-sky-400 opacity-80" />
+                        <h3 className="text-2xl font-black text-white group-hover:text-sky-400 transition-colors">
+                          <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="hover:underline decoration-sky-400/50 underline-offset-4 inline-flex items-center gap-2 group/title"
+                            aria-label={`Open ${project.name} live application`}
+                          >
+                            <span>{project.name}</span>
+                            <Sparkles className="w-4 h-4 text-sky-400 opacity-80 group-hover/title:scale-125 transition-transform" />
+                          </a>
                         </h3>
                         <p className="text-xs text-slate-400 font-medium mt-0.5">
                           {project.tagline || 'Interactive Web Application'}
@@ -75,9 +104,11 @@ export default function Projects() {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    aria-label={`Open ${project.name} live application`}
                     className="animate-sheen flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-extrabold text-white bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-600 hover:to-indigo-700 shadow-md shadow-sky-500/25 hover:scale-[1.03] active:scale-95 transition-all"
                   >
-                    <span>Launch Live App</span>
+                    <span>{project.actionLabel || 'View Project'}</span>
                     <ExternalLink className="w-4 h-4" />
                   </a>
 
@@ -86,7 +117,8 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="GitHub Repository"
+                      onClick={(e) => e.stopPropagation()}
+                      aria-label={`${project.name} GitHub Repository`}
                       className="p-3 rounded-2xl bg-slate-900/90 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-700/80 hover:border-sky-500/50 shadow-sm hover:scale-110 active:scale-95 transition-all"
                       title="View GitHub Repository"
                     >
