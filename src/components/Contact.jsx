@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare, Navigation, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare, Navigation, MessageCircle, GraduationCap } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 import Tilt3D from './Tilt3D';
@@ -64,13 +64,22 @@ export default function Contact() {
           <div className="lg:col-span-5 space-y-6">
             <Tilt3D maxTilt={8} scale={1.01} className="rounded-3xl shadow-2xl">
               <div className="glass-panel p-8 rounded-3xl border border-slate-700/80 shadow-2xl space-y-6 backdrop-blur-xl">
-                <h3 className="text-2xl font-black text-white flex items-center gap-2">
-                  <MessageSquare className="w-6 h-6 text-sky-400" />
-                  Direct Contact
-                </h3>
-                <p className="text-slate-300 text-sm leading-relaxed">
-                  Reach out to me via email or phone. I'm open to full-time roles, software developer positions, and technical collaborations.
-                </p>
+                <div>
+                  <h3 className="text-2xl font-black text-white flex items-center gap-2">
+                    <MessageSquare className="w-6 h-6 text-sky-400" />
+                    Direct Contact
+                  </h3>
+                  
+                  {/* Role Badge in Contact Section */}
+                  <div className="mt-3.5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-sky-500/15 border border-sky-400/30 text-sky-300 text-xs font-bold">
+                    <GraduationCap className="w-4 h-4 text-sky-400" />
+                    <span>Role: Student at NIAT</span>
+                  </div>
+
+                  <p className="text-slate-300 text-sm leading-relaxed mt-3">
+                    Student at NIAT. Reach out to me via email or phone for internships, software developer opportunities, and technical collaborations.
+                  </p>
+                </div>
 
                 <div className="space-y-4 pt-2">
                   

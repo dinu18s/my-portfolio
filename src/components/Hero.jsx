@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Mail, Phone, MapPin, Code2, Database, Globe, Brain, Navigation, Terminal, MessageCircle, Rocket, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Mail, Phone, MapPin, Code2, Database, Globe, Brain, Navigation, Terminal, MessageCircle, Rocket, Sparkles } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { personalInfo, coreTech } from '../data/portfolioData';
 import Tilt3D from './Tilt3D';
@@ -50,49 +50,24 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
           
-          {/* 3D Floating Hologram & Cyber HUD Avatar Centerpiece */}
-          <div
-            className="relative mb-10 group cursor-pointer preserve-3d transition-transform duration-300 ease-out"
-            style={{
-              transform: `perspective(1000px) rotateY(${mousePos.x * 16}deg) rotateX(${mousePos.y * -16}deg)`
-            }}
-          >
-            {/* Outer Holographic HUD Orbit Rings */}
-            <div className="absolute -inset-6 rounded-full border-2 border-sky-400/40 animate-[spin_12s_linear_infinite] pointer-events-none border-t-transparent border-b-transparent shadow-[0_0_20px_rgba(56,189,248,0.3)]" />
-            <div className="absolute -inset-10 rounded-full border border-dashed border-purple-400/35 animate-[spin_18s_linear_infinite_reverse] pointer-events-none" />
-            <div className="absolute -inset-14 rounded-full border border-indigo-500/20 pointer-events-none opacity-60 hidden sm:block" />
+          {/* Avatar Centerpiece - Normal clean effect on cursor hover, no colors/overlays on image */}
+          <div className="relative mb-10 group cursor-pointer">
+            {/* Outer Subtle Orbit Rings (Kept strictly in background z-0) */}
+            <div className="absolute -inset-6 rounded-full border-2 border-sky-400/30 animate-[spin_20s_linear_infinite] pointer-events-none border-t-transparent border-b-transparent z-0 shadow-[0_0_20px_rgba(56,189,248,0.2)]" />
+            <div className="absolute -inset-10 rounded-full border border-dashed border-purple-400/20 animate-[spin_30s_linear_infinite_reverse] pointer-events-none z-0" />
+            <div className="absolute -inset-14 rounded-full border border-indigo-500/15 pointer-events-none opacity-50 hidden sm:block z-0" />
 
-            {/* Orbiting 3D Satellite Feature Badges */}
-            <div
-              className="hidden md:flex absolute -top-5 -right-16 z-30 items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-sky-400/40 shadow-lg shadow-sky-500/20 backdrop-blur-md animate-float-3d"
-              style={{ transform: `translateZ(40px)` }}
-            >
-              <Code2 className="w-4 h-4 text-sky-400" />
-              <span className="text-xs font-bold text-sky-200">Python & SQL</span>
-            </div>
-
-            <div
-              className="hidden md:flex absolute -bottom-4 -left-16 z-30 items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-emerald-400/40 shadow-lg shadow-emerald-500/20 backdrop-blur-md animate-float-3d"
-              style={{ animationDelay: '1.5s', transform: `translateZ(40px)` }}
-            >
-              <Globe className="w-4 h-4 text-emerald-400" />
-              <span className="text-xs font-bold text-emerald-300 flex items-center gap-1">
-                Web Dev <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> 100%
-              </span>
-            </div>
-
-            {/* Glowing Backdrop Aura */}
-            <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 blur-xl opacity-80 group-hover:opacity-100 transition duration-500 animate-pulse" />
+            {/* Glowing Backdrop Aura strictly behind the image */}
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-sky-500/20 via-indigo-500/15 to-purple-500/20 blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 pointer-events-none z-0" />
             
-            <Tilt3D maxTilt={18} scale={1.05} className="rounded-full shadow-2xl">
-              <div className="relative p-1 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500">
-                <img
-                  src={personalInfo.profileImage}
-                  alt={personalInfo.name}
-                  className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover border-4 border-slate-950 shadow-2xl"
-                />
-              </div>
-            </Tilt3D>
+            {/* Profile Image Container - Normal clean hover effect, completely isolated so no colors ever overlay the image */}
+            <div className="relative z-10 rounded-full p-1 bg-slate-900 border-2 border-slate-700/80 shadow-2xl transition-all duration-300 ease-out group-hover:scale-105 group-hover:border-sky-500/50">
+              <img
+                src={personalInfo.profileImage}
+                alt={personalInfo.name}
+                className="w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover border-4 border-slate-950 shadow-inner block"
+              />
+            </div>
 
             {/* Cyber Status Pulse Beacon */}
             <span className="absolute bottom-3 right-3 w-7 h-7 bg-emerald-500 border-4 border-slate-950 rounded-full shadow-lg z-20 animate-pulse flex items-center justify-center">

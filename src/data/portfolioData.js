@@ -3,6 +3,7 @@ import profileImage from '../assets/profile.jpg';
 export const personalInfo = {
   name: "Matta Dinesh",
   title: "Software / Python Developer",
+  role: "Student at NIAT",
   tagline: "Focused on Python development, SQL database management, Web Fundamentals, and logical problem solving.",
   bio: "Software & Python Developer based in Medchal, Hyderabad. Specialized in Python programming, relational database queries with SQL, core Web Fundamentals (HTML, CSS), and analytical problem-solving through strong Aptitude and Logical Reasoning.",
   email: "mattadinu9704637774@gmail.com",
@@ -36,7 +37,7 @@ export const skillsData = {
   tools: [
     { name: "Git & GitHub", level: 75, icon: "GitBranch", description: "Version control and code repository management" },
     { name: "SQL Database Tools", level: 70, icon: "HardDrive", description: "Database querying and table management tools" },
-    { name: "VS Code", level: 85, icon: "Terminal", description: "Primary integrated development environment" }
+    { name: "VS Code", level: 100, icon: "Terminal", description: "Primary integrated development environment" }
   ]
 };
 
