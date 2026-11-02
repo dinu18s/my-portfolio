@@ -71,83 +71,52 @@ export const projectsData = [
   }
 ];
 
-export const educationData = [
-  {
-    id: 1,
-    degree: "B.Tech in Computer Science & Engineering (AIML)",
-    institution: "Institute of Aeronautical Engineering (IARE)",
-    location: "Hyderabad, India",
-    period: "2022 - 2026",
-    score: "Undergraduate",
-    description: "Rigorous curriculum encompassing Python programming, Relational Databases (SQL), Core Web Technologies, Artificial Intelligence, Machine Learning algorithms, Data Structures, and Analytical Reasoning.",
-    highlights: [
-      "Specialized coursework in AI/ML, Python, and Database Management Systems",
-      "Hands-on project work developing responsive applications and algorithmic solutions",
-      "Active participant in technical workshops, hackathons, and problem-solving contests"
-    ]
-  }
-];
-
-export const certificationsData = [
-  {
-    id: 1,
-    title: "NPTEL Certification",
-    issuer: "NPTEL & IITs",
-    category: "Computer Science & Problem Solving",
-    date: "Completed",
-    description: "Nationally recognized certification demonstrating strong core programming logic, structured problem-solving, and algorithmic thinking."
-  },
-  {
-    id: 2,
-    title: "IARE (AIML) Technical Certification",
-    issuer: "Institute of Aeronautical Engineering",
-    category: "Artificial Intelligence & Machine Learning",
-    date: "Certified",
-    description: "Hands-on certification covering core machine learning paradigms, data exploration, predictive modeling, and intelligent software systems."
-  },
-  {
-    id: 3,
-    title: "Arm Robotic Systems Workshop",
-    issuer: "Technical Training & Robotics Lab",
-    category: "Hardware & Automation",
-    date: "Certified",
-    description: "Practical engineering training in robotic arm kinematics, microcontroller integration, sensor interfacing, and automated task execution."
-  },
-  {
-    id: 4,
-    title: "Web Development (100% Completed)",
-    issuer: "Self-Paced Professional Learning",
-    category: "Full Stack Fundamentals",
-    date: "100% Mastered",
-    description: "Comprehensive mastery of HTML5, CSS3, DOM manipulation, responsive layouts, web accessibility standards, and web application architecture."
-  }
-];
-
 export const experienceData = [
   {
     id: 1,
-    role: "B.Tech Undergrad — Computer Science (AIML)",
-    company: "Institute of Aeronautical Engineering (IARE)",
-    period: "2022 - Present",
-    location: "Hyderabad, India",
-    description: "Pursuing Bachelor of Technology with focus on Python scripting, SQL database design, web application development, and computational logic.",
-    highlights: [
-      "Engineered real-world applications including Chronosmatch, QuizMaster, and ChatZPT",
-      "Mastered 100% of Web Development fundamentals and front-end architectures",
-      "Consistently solved algorithmic problem-solving challenges with strong logical reasoning"
-    ]
-  },
-  {
-    id: 2,
-    role: "Independent Software & Python Developer",
-    company: "Personal Projects & Open Source",
-    period: "2023 - Present",
-    location: "Medchal, Hyderabad",
-    description: "Building production-grade web tools, interactive applications, and algorithmic automation scripts utilizing Python, SQL, and modern web technologies.",
-    highlights: [
-      "Architected Chronosmatch: real-time virtual trading terminal with high-throughput matching engine",
-      "Developed QuizMaster and ChatZPT with responsive UI and live deployments",
-      "Authored clean, maintainable, modular code adhering to modern web performance standards"
+    role: "Python Developer Intern",
+    organization: "Infotact Solutions",
+    duration: "3 Months",
+    workMode: "Remote",
+    year: "2026",
+    status: "Ongoing",
+    description: "Working as a Python Developer Intern, developing practical programming and backend development skills through technical assignments and project-based learning.",
+    areasOfWork: [
+      "Python Programming",
+      "Backend Development",
+      "Data Analysis",
+      "API Integration",
+      "Automation",
+      "Technical Documentation"
     ]
   }
 ];
+
+export const educationData = [
+  {
+    id: 1,
+    degree: "B.Tech – Computer Science and Engineering (AI)",
+    institution: "NIAT × Mallareddy Vishwavidhyapeeth",
+    duration: "2025–2029",
+    status: "2nd Year – Currently Pursuing",
+    isPursuing: true
+  },
+  {
+    id: 2,
+    degree: "Intermediate",
+    institution: "Narayana Junior College, Vijayawada",
+    duration: "2023–2025",
+    score: "87.6%",
+    isPursuing: false
+  },
+  {
+    id: 3,
+    degree: "Secondary School Certificate (SSC)",
+    institution: "Karunya High School, Narsipatnam",
+    duration: "2022–2023",
+    score: "87.6%",
+    isPursuing: false
+  }
+];
+
+export const certificationsData = [];
