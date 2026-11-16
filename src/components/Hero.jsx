@@ -105,35 +105,34 @@ export default function Hero() {
             {personalInfo.tagline}
           </p>
 
-          {/* Email & Location Badges */}
-          <div className="mt-6 flex flex-col items-center gap-3 text-xs sm:text-sm text-slate-300">
-            {/* Top Line: Email */}
+          {/* Email Badge (Top Line) */}
+          <div className="mt-6 flex justify-center text-xs sm:text-sm text-slate-300">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="inline-flex items-center gap-2 bg-slate-900/85 hover:bg-slate-800 px-4.5 py-2 rounded-2xl border border-slate-700/80 transition-all shadow-sm font-semibold text-slate-200 hover:border-sky-500/50 hover:scale-105"
+              className="inline-flex items-center gap-2 bg-slate-900/85 hover:bg-slate-800 px-4 py-2 rounded-2xl border border-slate-700/80 transition-all shadow-sm font-semibold text-slate-200 hover:border-sky-500/50"
             >
               <Mail className="w-4 h-4 text-sky-400" />
               {personalInfo.email}
             </a>
+          </div>
 
-            {/* Below Line: Medchal with Location link at its side */}
-            <div className="flex flex-wrap items-center justify-center gap-2.5">
-              <span className="inline-flex items-center gap-2 bg-slate-900/85 px-4 py-2 rounded-2xl border border-slate-700/80 shadow-sm font-semibold text-slate-200">
-                <MapPin className="w-4 h-4 text-sky-400" />
-                {personalInfo.location}
-              </span>
+          {/* Location & Maps Link (Below Line: Side by Side) */}
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-300">
+            <span className="inline-flex items-center gap-2 bg-slate-900/85 px-4 py-2 rounded-2xl border border-slate-700/80 shadow-sm font-semibold text-slate-200">
+              <MapPin className="w-4 h-4 text-sky-400" />
+              {personalInfo.location}
+            </span>
 
-              <a
-                href={personalInfo.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-2xl bg-sky-500/15 text-sky-400 hover:bg-sky-500/25 border border-sky-500/40 transition-all hover:scale-105 shadow-sm"
-              >
-                <Navigation className="w-3.5 h-3.5 text-sky-400" />
-                <span>Location</span>
-                <span className="text-[10px]">↗</span>
-              </a>
-            </div>
+            <a
+              href={personalInfo.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4.5 py-2 text-xs font-bold rounded-2xl bg-sky-500/15 text-sky-400 hover:bg-sky-500/25 border border-sky-500/40 transition-all hover:scale-105 shadow-sm"
+            >
+              <Navigation className="w-3.5 h-3.5 text-sky-400" />
+              <span>Location</span>
+              <span className="text-[10px]">↗</span>
+            </a>
           </div>
 
           {/* 3D Cyber CTA Buttons: "View Projects" & "Hire Me" */}
