@@ -6,7 +6,7 @@ export const personalInfo = {
   role: "Student at NIAT",
   tagline: "Focused on Python development, SQL database management, Web Fundamentals, and logical problem solving.",
   bio: "Software & Python Developer based in Medchal, Hyderabad. Specialized in Python programming, relational database queries with SQL, core Web Fundamentals (HTML, CSS), and analytical problem-solving through strong Aptitude and Logical Reasoning.",
-  email: "mattadinu9704637774@gmail.com",
+  email: "mattadinesh018@gmail.com",
   phone: "9704637774",
   whatsappUrl: "https://wa.me/919704637774",
   location: "Medchal, Hyderabad, India",
