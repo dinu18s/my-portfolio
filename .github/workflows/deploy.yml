@@ -31,6 +31,11 @@ jobs:
         run: npm ci
 
       - name: Build project
+        env:
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID || vars.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY || vars.VITE_EMAILJS_PUBLIC_KEY }}
+          VITE_EMAILJS_OWNER_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_OWNER_TEMPLATE_ID || vars.VITE_EMAILJS_OWNER_TEMPLATE_ID }}
+          VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID || vars.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID }}
         run: npm run build
 
       - name: Upload artifact
