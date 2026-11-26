@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUp, Mail, Phone, MapPin, Code2, MessageCircle } from 'lucide-react';
-import { Github, Linkedin } from './Icons';
+import { Github, Linkedin, WhatsApp } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Footer() {
@@ -68,24 +68,22 @@ export default function Footer() {
                   {personalInfo.email}
                 </a>
               </li>
-              <li className="flex flex-col gap-1.5">
-                <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0" />
-                  <a href={`tel:${personalInfo.phone}`} className="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">
-                    +91 {personalInfo.phone}
-                  </a>
-                </div>
-                <div className="ml-6">
-                  <a
-                    href={personalInfo.whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500 hover:text-white text-[11px] font-bold border border-emerald-500/30 transition-all hover:scale-105"
-                  >
-                    <MessageCircle className="w-3 h-3" />
-                    <span>WhatsApp Chat ↗</span>
-                  </a>
-                </div>
+              <li className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0" />
+                <a href={`tel:${personalInfo.phone}`} className="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">
+                  +91 {personalInfo.phone}
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <WhatsApp className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0" />
+                <a
+                  href={personalInfo.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                >
+                  WhatsApp (+91 {personalInfo.phone})
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-purple-500 dark:text-purple-400 shrink-0" />

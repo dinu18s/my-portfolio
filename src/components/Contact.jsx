@@ -14,7 +14,7 @@ import {
   Loader2 
 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-import { Github, Linkedin } from './Icons';
+import { Github, Linkedin, WhatsApp } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 import Tilt3D from './Tilt3D';
 
@@ -259,41 +259,53 @@ export default function Contact() {
                     </div>
                   </a>
 
-                  {/* Phone Card with WhatsApp Message Link */}
-                  <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 transition-all group">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-400/20 group-hover:scale-110 transition-transform">
-                        <Phone className="w-6 h-6" />
-                      </div>
-                      <div>
+                  {/* Phone Card */}
+                  <a
+                    href={`tel:${personalInfo.phone}`}
+                    className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all group"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-500 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-400/20 group-hover:scale-110 transition-transform">
+                      <Phone className="w-6 h-6" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
                         <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
                           Phone Number
                         </p>
-                        <a
-                          href={`tel:${personalInfo.phone}`}
-                          className="text-sm font-bold text-white hover:text-emerald-400 transition-colors"
-                        >
-                          +91 {personalInfo.phone}
-                        </a>
+                        <span className="text-xs font-bold text-emerald-500 dark:text-emerald-400 flex items-center gap-1">
+                          Call ↗
+                        </span>
                       </div>
+                      <p className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
+                        +91 {personalInfo.phone}
+                      </p>
                     </div>
+                  </a>
 
-                    {/* Under the phone number: "Message" redirecting to WhatsApp */}
-                    <div className="mt-3 pt-2.5 border-t border-slate-800 flex items-center justify-between">
-                      <span className="text-xs text-slate-400">
-                        Chat on WhatsApp:
-                      </span>
-                      <a
-                        href={personalInfo.whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold shadow-md shadow-emerald-500/20 hover:scale-105 active:scale-95 transition-all"
-                      >
-                        <MessageCircle className="w-3.5 h-3.5" />
-                        Message ↗
-                      </a>
+                  {/* WhatsApp Card directly under Phone Number */}
+                  <a
+                    href={personalInfo.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all group"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-500 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-400/20 group-hover:scale-110 transition-transform">
+                      <WhatsApp className="w-6 h-6" />
                     </div>
-                  </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                          WhatsApp
+                        </p>
+                        <span className="text-xs font-bold text-emerald-500 dark:text-emerald-400 flex items-center gap-1">
+                          Chat ↗
+                        </span>
+                      </div>
+                      <p className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
+                        +91 {personalInfo.phone}
+                      </p>
+                    </div>
+                  </a>
 
                   {/* Location Card */}
                   <a

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Mail, Phone, MapPin, Code2, Database, Globe, Brain, Navigation, Terminal, MessageCircle, Rocket, Sparkles } from 'lucide-react';
-import { Github, Linkedin } from './Icons';
+import { Github, Linkedin, WhatsApp } from './Icons';
 import { personalInfo, coreTech } from '../data/portfolioData';
 import Tilt3D from './Tilt3D';
 
@@ -154,14 +154,15 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Social Quick Links: LinkedIn first, GitHub second, Email, Phone with WhatsApp */}
-          <div className="mt-10 flex items-start justify-center gap-4">
+          {/* Social Quick Links: LinkedIn, GitHub, Email, Call, WhatsApp */}
+          <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
             <a
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
-              className="p-3.5 rounded-2xl bg-slate-900/90 text-slate-300 hover:text-sky-400 hover:bg-slate-800 transition-all border border-slate-700/80 shadow-md hover:scale-110 hover:border-sky-500/50"
+              title="LinkedIn Profile"
+              className="p-3.5 rounded-2xl bg-white dark:bg-slate-900/90 text-slate-600 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md hover:scale-110 hover:border-sky-500/50"
             >
               <Linkedin className="w-5 h-5" />
             </a>
@@ -170,35 +171,37 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
-              className="p-3.5 rounded-2xl bg-slate-900/90 text-slate-300 hover:text-sky-400 hover:bg-slate-800 transition-all border border-slate-700/80 shadow-md hover:scale-110 hover:border-sky-500/50"
+              title="GitHub Profile"
+              className="p-3.5 rounded-2xl bg-white dark:bg-slate-900/90 text-slate-600 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md hover:scale-110 hover:border-sky-500/50"
             >
               <Github className="w-5 h-5" />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
               aria-label="Send Email"
-              className="p-3.5 rounded-2xl bg-slate-900/90 text-slate-300 hover:text-sky-400 hover:bg-slate-800 transition-all border border-slate-700/80 shadow-md hover:scale-110 hover:border-sky-500/50"
+              title="Send Email"
+              className="p-3.5 rounded-2xl bg-white dark:bg-slate-900/90 text-slate-600 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md hover:scale-110 hover:border-sky-500/50"
             >
               <Mail className="w-5 h-5" />
             </a>
-            <div className="flex flex-col items-center gap-1.5">
-              <a
-                href={`tel:${personalInfo.phone}`}
-                aria-label="Call Phone"
-                className="p-3.5 rounded-2xl bg-slate-900/90 text-slate-300 hover:text-emerald-400 hover:bg-slate-800 transition-all border border-slate-700/80 shadow-md hover:scale-110 hover:border-emerald-500/50"
-              >
-                <Phone className="w-5 h-5" />
-              </a>
-              <a
-                href={personalInfo.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500 hover:text-white text-[11px] font-bold border border-emerald-400/30 transition-all hover:scale-105 shadow-sm"
-              >
-                <MessageCircle className="w-3 h-3" />
-                Message ↗
-              </a>
-            </div>
+            <a
+              href={`tel:${personalInfo.phone}`}
+              aria-label="Call Phone"
+              title={`Call Phone (+91 ${personalInfo.phone})`}
+              className="p-3.5 rounded-2xl bg-white dark:bg-slate-900/90 text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md hover:scale-110 hover:border-emerald-500/50"
+            >
+              <Phone className="w-5 h-5" />
+            </a>
+            <a
+              href={personalInfo.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp Chat"
+              title={`Chat on WhatsApp (+91 ${personalInfo.phone})`}
+              className="p-3.5 rounded-2xl bg-white dark:bg-slate-900/90 text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md hover:scale-110 hover:border-emerald-500/50"
+            >
+              <WhatsApp className="w-5 h-5" />
+            </a>
           </div>
 
           {/* Core Tech Grid wrapped in Cyber 3D Modules */}
