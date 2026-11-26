@@ -44,7 +44,9 @@ export default function Canvas3D() {
         vx: (Math.random() - 0.5) * 0.4,
         vy: (Math.random() - 0.5) * 0.4,
         vz: (Math.random() - 0.5) * 0.3,
-        color: i % 3 === 0 ? 'rgba(56, 189, 248,' : i % 3 === 1 ? 'rgba(168, 85, 247,' : 'rgba(99, 102, 241,'
+        color: darkMode
+          ? (i % 3 === 0 ? 'rgba(56, 189, 248,' : i % 3 === 1 ? 'rgba(168, 85, 247,' : 'rgba(99, 102, 241,')
+          : (i % 3 === 0 ? 'rgba(2, 132, 199,' : i % 3 === 1 ? 'rgba(126, 34, 206,' : 'rgba(67, 56, 202,')
       });
     }
 
@@ -112,10 +114,10 @@ export default function Canvas3D() {
     };
 
     const shapes = [
-      { ...createIcosahedron(85), cx: -480, cy: -220, cz: 420, rx: 0, ry: 0, rSpeedX: 0.006, rSpeedY: 0.009, color: 'rgba(56, 189, 248,' },
-      { ...createOctahedron(90), cx: 520, cy: 120, cz: 500, rx: 0, ry: 0, rSpeedX: -0.008, rSpeedY: 0.007, color: 'rgba(168, 85, 247,' },
-      { ...createCube(90), cx: -400, cy: 320, cz: 380, rx: 0, ry: 0, rSpeedX: 0.007, rSpeedY: -0.006, color: 'rgba(99, 102, 241,' },
-      { ...createIcosahedron(65), cx: 420, cy: -320, cz: 460, rx: 0, ry: 0, rSpeedX: -0.005, rSpeedY: -0.008, color: 'rgba(56, 189, 248,' },
+      { ...createIcosahedron(85), cx: -480, cy: -220, cz: 420, rx: 0, ry: 0, rSpeedX: 0.006, rSpeedY: 0.009, color: darkMode ? 'rgba(56, 189, 248,' : 'rgba(2, 132, 199,' },
+      { ...createOctahedron(90), cx: 520, cy: 120, cz: 500, rx: 0, ry: 0, rSpeedX: -0.008, rSpeedY: 0.007, color: darkMode ? 'rgba(168, 85, 247,' : 'rgba(126, 34, 206,' },
+      { ...createCube(90), cx: -400, cy: 320, cz: 380, rx: 0, ry: 0, rSpeedX: 0.007, rSpeedY: -0.006, color: darkMode ? 'rgba(99, 102, 241,' : 'rgba(67, 56, 202,' },
+      { ...createIcosahedron(65), cx: 420, cy: -320, cz: 460, rx: 0, ry: 0, rSpeedX: -0.005, rSpeedY: -0.008, color: darkMode ? 'rgba(56, 189, 248,' : 'rgba(2, 132, 199,' },
     ];
 
     const fov = 480;
@@ -144,7 +146,7 @@ export default function Canvas3D() {
         const scale = fov / (fov + p.z);
         const projectedX = (p.x + mouseX * 0.7) * scale + width / 2;
         const projectedY = (p.y + mouseY * 0.7) * scale + height / 2;
-        const alpha = Math.min(1, Math.max(0.1, (1 - p.z / 1100) * 0.75));
+        const alpha = Math.min(1, Math.max(0.1, (1 - p.z / 1100) * (darkMode ? 0.75 : 0.65)));
 
         projectedParticles.push({ x: projectedX, y: projectedY, z: p.z, scale, alpha, color: p.color });
 
@@ -164,11 +166,11 @@ export default function Canvas3D() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < 90) {
-            const lineAlpha = (1 - dist / 90) * 0.15 * p1.alpha;
+            const lineAlpha = (1 - dist / 90) * (darkMode ? 0.15 : 0.2) * p1.alpha;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(56, 189, 248, ${lineAlpha})`;
+            ctx.strokeStyle = darkMode ? `rgba(56, 189, 248, ${lineAlpha})` : `rgba(2, 132, 199, ${lineAlpha * 1.5})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
@@ -215,7 +217,7 @@ export default function Canvas3D() {
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
           ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `${shape.color} ${p1.alpha * (darkMode ? 0.45 : 0.25)})`;
+          ctx.strokeStyle = `${shape.color} ${p1.alpha * (darkMode ? 0.45 : 0.35)})`;
           ctx.stroke();
         });
 
@@ -243,7 +245,9 @@ export default function Canvas3D() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-500 opacity-85"
+      className={`fixed inset-0 pointer-events-none z-0 transition-opacity duration-500 ${
+        darkMode ? 'opacity-85' : 'opacity-65'
+      }`}
     />
   );
 }

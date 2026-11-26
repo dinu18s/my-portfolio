@@ -61,22 +61,22 @@ export default function Hero() {
             <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-sky-500/20 via-indigo-500/15 to-purple-500/20 blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 pointer-events-none z-0" />
             
             {/* Profile Image Container - Normal clean hover effect, completely isolated so no colors ever overlay the image */}
-            <div className="relative z-10 rounded-full p-1 bg-slate-900 border-2 border-slate-700/80 shadow-2xl transition-all duration-300 ease-out group-hover:scale-105 group-hover:border-sky-500/50">
+            <div className="relative z-10 rounded-full p-1 bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700/80 shadow-2xl transition-all duration-300 ease-out group-hover:scale-105 group-hover:border-sky-500/50">
               <img
                 src={personalInfo.profileImage}
                 alt={personalInfo.name}
-                className="w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover border-4 border-slate-950 shadow-inner block"
+                className="w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover border-4 border-slate-100 dark:border-slate-950 shadow-inner block"
               />
             </div>
 
             {/* Cyber Status Pulse Beacon */}
-            <span className="absolute bottom-3 right-3 w-7 h-7 bg-emerald-500 border-4 border-slate-950 rounded-full shadow-lg z-20 animate-pulse flex items-center justify-center">
+            <span className="absolute bottom-3 right-3 w-7 h-7 bg-emerald-500 border-4 border-white dark:border-slate-950 rounded-full shadow-lg z-20 animate-pulse flex items-center justify-center">
               <span className="w-2.5 h-2.5 bg-white rounded-full" />
             </span>
           </div>
 
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4.5 py-1.5 rounded-full bg-gradient-to-r from-sky-500/10 via-indigo-500/10 to-purple-500/10 border border-sky-400/40 text-sky-300 text-xs font-extrabold tracking-wider uppercase mb-5 shadow-sm backdrop-blur-md">
+          <div className="inline-flex items-center gap-2.5 px-4.5 py-1.5 rounded-full bg-gradient-to-r from-sky-500/10 via-indigo-500/10 to-purple-500/10 border border-sky-400/40 text-sky-500 dark:text-sky-300 text-xs font-extrabold tracking-wider uppercase mb-5 shadow-sm backdrop-blur-md">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500"></span>
@@ -85,7 +85,7 @@ export default function Hero() {
           </div>
 
           {/* Main Name & Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-[1.12]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.12]">
             Hi, I'm{' '}
             <span className="text-gradient-cyan drop-shadow-[0_0_25px_rgba(56,189,248,0.35)]">
               {personalInfo.name}
@@ -93,33 +93,33 @@ export default function Hero() {
           </h1>
 
           {/* Role Sub-Badge */}
-          <div className="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-slate-900/80 border border-slate-700/80 backdrop-blur-md shadow-sm">
-            <Terminal className="w-4 h-4 text-sky-400" />
-            <p className="text-base sm:text-lg font-bold text-slate-200">
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 backdrop-blur-md shadow-sm">
+            <Terminal className="w-4 h-4 text-sky-500 dark:text-sky-400" />
+            <p className="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-200">
               {personalInfo.title}
             </p>
           </div>
 
           {/* Short Bio */}
-          <p className="mt-6 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
             {personalInfo.tagline}
           </p>
 
           {/* Email Badge (Top Line) */}
-          <div className="mt-6 flex justify-center text-xs sm:text-sm text-slate-300">
+          <div className="mt-6 flex justify-center text-xs sm:text-sm text-slate-600 dark:text-slate-300">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="inline-flex items-center gap-2 bg-slate-900/85 hover:bg-slate-800 px-4 py-2 rounded-2xl border border-slate-700/80 transition-all shadow-sm font-semibold text-slate-200 hover:border-sky-500/50"
+              className="inline-flex items-center gap-2 bg-white/90 dark:bg-slate-900/85 hover:bg-slate-100 dark:hover:bg-slate-800 px-4 py-2 rounded-2xl border border-slate-200 dark:border-slate-700/80 transition-all shadow-sm font-semibold text-slate-800 dark:text-slate-200 hover:border-sky-500/50"
             >
-              <Mail className="w-4 h-4 text-sky-400" />
+              <Mail className="w-4 h-4 text-sky-500 dark:text-sky-400" />
               {personalInfo.email}
             </a>
           </div>
 
           {/* Location & Maps Link (Below Line: Side by Side) */}
-          <div className="mt-3 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-300">
-            <span className="inline-flex items-center gap-2 bg-slate-900/85 px-4 py-2 rounded-2xl border border-slate-700/80 shadow-sm font-semibold text-slate-200">
-              <MapPin className="w-4 h-4 text-sky-400" />
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <span className="inline-flex items-center gap-2 bg-white/90 dark:bg-slate-900/85 px-4 py-2 rounded-2xl border border-slate-200 dark:border-slate-700/80 shadow-sm font-semibold text-slate-800 dark:text-slate-200">
+              <MapPin className="w-4 h-4 text-sky-500 dark:text-sky-400" />
               {personalInfo.location}
             </span>
 
@@ -127,9 +127,9 @@ export default function Hero() {
               href={personalInfo.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4.5 py-2 text-xs font-bold rounded-2xl bg-sky-500/15 text-sky-400 hover:bg-sky-500/25 border border-sky-500/40 transition-all hover:scale-105 shadow-sm"
+              className="inline-flex items-center gap-2 px-4.5 py-2 text-xs font-bold rounded-2xl bg-sky-500/15 text-sky-600 dark:text-sky-400 hover:bg-sky-500/25 border border-sky-500/40 transition-all hover:scale-105 shadow-sm"
             >
-              <Navigation className="w-3.5 h-3.5 text-sky-400" />
+              <Navigation className="w-3.5 h-3.5 text-sky-500 dark:text-sky-400" />
               <span>Location</span>
               <span className="text-[10px]">↗</span>
             </a>
@@ -147,9 +147,9 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-base font-extrabold rounded-2xl text-slate-100 bg-slate-900/85 hover:bg-slate-800 border border-sky-400/40 hover:border-sky-400 shadow-[0_0_20px_rgba(56,189,248,0.2)] hover:shadow-[0_0_30px_rgba(56,189,248,0.35)] transition-all hover:scale-105 active:scale-95 backdrop-blur-md"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-base font-extrabold rounded-2xl text-slate-800 dark:text-slate-100 bg-white/90 dark:bg-slate-900/85 hover:bg-slate-100 dark:hover:bg-slate-800 border border-sky-400/40 hover:border-sky-400 shadow-[0_0_20px_rgba(56,189,248,0.15)] hover:shadow-[0_0_30px_rgba(56,189,248,0.3)] transition-all hover:scale-105 active:scale-95 backdrop-blur-md cursor-pointer"
             >
-              <Sparkles className="w-4 h-4 text-sky-400" />
+              <Sparkles className="w-4 h-4 text-sky-500 dark:text-sky-400" />
               Hire Me
             </a>
           </div>
