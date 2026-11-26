@@ -198,9 +198,9 @@ export default function Hero() {
               rel="noopener noreferrer"
               aria-label="WhatsApp Chat"
               title={`Chat on WhatsApp (+91 ${personalInfo.phone})`}
-              className="p-3.5 rounded-2xl bg-white dark:bg-slate-900/90 text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md hover:scale-110 hover:border-emerald-500/50"
+              className="p-3.5 rounded-2xl bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-500 dark:text-emerald-400 hover:bg-emerald-500/20 dark:hover:bg-emerald-500/25 border border-emerald-500/30 hover:border-emerald-500/60 shadow-md shadow-emerald-500/10 hover:scale-110 transition-all"
             >
-              <WhatsApp className="w-5 h-5" />
+              <WhatsApp className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />
             </a>
           </div>
 
